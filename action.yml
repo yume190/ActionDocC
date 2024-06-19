@@ -18,13 +18,13 @@ runs:
       shell: bash
       run: |
         $(xcrun --find docc) convert \
-            --hosting-base-path {{ inputs.host }} \
+            --hosting-base-path ${{inputs.host}} \
             --output-path Target.doccarchive \
-            {{ inputs.docc }}
+            ${{inputs.docc}}
     - name: DocC Archive
       shell: bash
       run: |
           $(xcrun --find docc) process-archive transform-for-static-hosting Target.doccarchive \
-            --hosting-base-path {{ inputs.host }} \
-            --output-path {{ inputs.output }}
+            --hosting-base-path ${{inputs.host}} \
+            --output-path ${{inputs.output}}
     
